@@ -28,11 +28,4 @@ public class GasStation {
         }
         return i == index;
     }
-
-    public static void main(String[] args) {
-        GasStation gasStation = new GasStation();
-        int[] gas = new int[]{1, 2, 3, 4, 5};
-        int[] cost = new int[]{3, 4, 5, 1, 2};
-        System.out.println(gasStation.canCompleteCircuit(gas, cost));
-    }
 }
