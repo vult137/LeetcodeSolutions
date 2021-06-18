@@ -29,10 +29,10 @@ public class LRUCache {
         }
     }
 
-    private HashMap<Integer, LinkedNode> cache = new HashMap<>();
+    private final HashMap<Integer, LinkedNode> cache = new HashMap<>();
+    private final int capacity;
+    private final LinkedNode head, tail;
     private int count;
-    private int capacity;
-    private LinkedNode head, tail;
 
     private void addNode(LinkedNode node) {
         node.pre = head;
@@ -85,7 +85,7 @@ public class LRUCache {
             LinkedNode newNode = new LinkedNode(key, value);
             this.cache.put(key, newNode);
             this.addNode(newNode);
-            count++;
+            this.count++;
             if (count > capacity) {
                 LinkedNode poppedTail = this.popTail();
                 this.cache.remove(poppedTail.key);
